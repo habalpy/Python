@@ -37,7 +37,7 @@ def convert_list_to_string(list_object, seperator=''):
     return seperator.join(list_object)
 
 try:
-    with open('rec_list.csv') as csv_file:
+    with open('device_list.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         line_count = 0
         for row in csv_reader:
@@ -54,7 +54,7 @@ try:
                 config_portsec_commands = ["interface GigabitEthernet0/2", "switchport mode access", "switchport access vlan 11", "switchport port-security", "switchport port-security mac-address sticky"]
                 add_static_mac = ["switchport port-security mac-address sticky "] 
                 host = convert_list_to_string(row[0])
-                rectifier_ip = convert_list_to_string(row[1])
+                end_device_ip = convert_list_to_string(row[1])
                 svi = convert_list_to_string(row[2])
                 line_count += 1               
                 try:
@@ -110,7 +110,7 @@ try:
                         configdev = device.send_config_set(config_portsec_commands)
                         configdev2 = device.send_config_set(config_vlan_interface_commands)
                         time.sleep(2)
-                        output5 = device.send_command("ping " + rectifier_ip + " repeat 5")
+                        output5 = device.send_command("ping " + end_device_ip + " repeat 5")
                         configdev3 = device.send_config_set(remove_vlan_interface_commands)
                         output6 = device.send_command("show run interface GigabitEthernet0/2")
                         outF.write("Switch " + host + " After Port Config Change # \n")
