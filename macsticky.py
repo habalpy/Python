@@ -1,6 +1,6 @@
 
 ######################################
-# Version: 1.7
+# Version: 1.8
 # Author:  Sami Wehbi
 # Github:  https://github.com/habalpy/
 ######################################
