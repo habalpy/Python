@@ -1,9 +1,9 @@
 
-######################################
+##############################################
 # Version: 1.8
 # Author:  Sami Wehbi
-# Github:  https://github.com/habalpy/
-######################################
+# Github:  https://github.com/habalpy/Python/
+##############################################
 
 import os
 import sys
